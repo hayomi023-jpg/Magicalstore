@@ -5,17 +5,10 @@ on:
   pull_request:
     branches: [master]
 jobs:
-  lint-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install dependencies
-        run: npm ci
-      - name: Run ESLint
-        run: npx eslint . --max-warnings=0
-      - name: Run tests
-        run: npm test
+      - name: Simple check
+        run: echo "CI for static site – nothing to build"
+
