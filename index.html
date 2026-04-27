@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="MAGICAL STORE – bold streetwear for the fearless. Shop the latest collection of clothing, shoes, and accessories.">
+    <meta property="og:title" content="MAGICAL STORE">
+    <meta property="og:description" content="Bold streetwear for the fearless.">
+    <meta property="og:image" content="https://example.com/og-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MAGICAL STORE">
+    <meta name="twitter:description" content="Bold streetwear for the fearless.">
+    <meta name="twitter:image" content="https://example.com/og-image.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAGICAL STORE</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #080808;
+    --off-white: #f0ece3;
+    --acid: #d4ff00;
+    --red: #ff2b2b;
+    --mid: #1a1a1a;
+    --border: #2a2a2a;
+    --muted: #555;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    cursor: crosshair;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--acid); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    color: var(--acid);
+  }
+  .nav-logo span { color: var(--off-white); }
+
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--acid); }
+
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+  .cart-btn {
+    background: var(--acid);
+    color: var(--black);
+    border: none;
+    padding: 0.45rem 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    position: relative;
+  }
+  .cart-btn:hover { background: #fff; }
+  .cart-btn:active { transform: scale(0.97); }
+
+  .cart-count {
+    position: absolute; top: -8px; right: -8px;
+    background: var(--red);
+    color: #fff;
+    border-radius: 50%;
+    width: 18px; height: 18px;
+    font-size: 0.65rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 30px; height: 1px;
+    background: var(--acid);
+  }
+
+  .hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 10vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    margin-bottom: 1.5rem;
+  }
+  .hero-h1 .accent { color: var(--acid); display: block; }
+
+  .hero-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 360px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
+  .btn-primary {
+    background: var(--acid);
+    color: var(--black);
+    border: none;
+    padding: 0.85rem 2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 0.85rem 2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-ghost:hover { border-color: var(--acid); color: var(--acid); transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--mid);
+  }
+
+  .hero-img-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 50%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20vw;
+    color: rgba(212,255,0,0.04);
+    position: absolute;
+    user-select: none;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-model-graphic {
+    position: relative; z-index: 2;
+    text-align: center;
+  }
+
+  .hero-model-graphic .silhouette {
+    width: 220px; height: 420px;
+    background: var(--acid);
+    clip-path: polygon(35% 0%, 65% 0%, 75% 15%, 80% 40%, 70% 42%, 72% 65%, 78% 100%, 22% 100%, 28% 65%, 30% 42%, 20% 40%, 25% 15%);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-model-graphic .silhouette::before {
+    content: '';
+    position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 80px;
+    background: var(--acid);
+    border-radius: 50%;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 3rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 0.75rem;
+    writing-mode: vertical-rl;
+  }
+
+  .marquee-bar {
+    background: var(--acid);
+    color: var(--black);
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 3rem; }
+
+  .section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .section-count {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .product-card {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .product-card:hover { background: var(--mid); }
+
+  .product-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .product-img-bg {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    letter-spacing: -0.02em;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+  }
+
+  .product-card:hover .product-img-bg { transform: scale(1.04); }
+
+  .product-badge {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .product-badge.new { background: var(--acid); color: var(--black); }
+
+  .product-info {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .product-cat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .product-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .product-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--acid);
+  }
+
+  .add-btn {
+    background: transparent;
+    color: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.9rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+  }
+  .add-btn:hover { background: var(--acid); border-color: var(--acid); color: var(--black); }
+  .add-btn:active { transform: scale(0.96); }
+
+  /* ── PRODUCT COLORS ── */
+  .p-c1 { background: #111; color: rgba(212,255,0,0.15); }
+  .p-c2 { background: #0e0e18; color: rgba(212,255,0,0.12); }
+  .p-c3 { background: #180e0e; color: rgba(255,43,43,0.15); }
+  .p-c4 { background: #0e1210; color: rgba(212,255,0,0.1); }
+  .p-c5 { background: #15100e; color: rgba(255,43,43,0.12); }
+  .p-c6 { background: #101518; color: rgba(212,255,0,0.08); }
+  .p-c7 { background: #121215; color: rgba(255,255,255,0.05); }
+  .p-c8 { background: #0f130f; color: rgba(212,255,0,0.12); }
+  .p-c9 { background: #181212; color: rgba(255,43,43,0.1); }
+
+  /* ── DIVIDER SECTION ── */
+  .divider-section {
+    padding: 4rem 3rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    gap: 4rem;
+    background: var(--mid);
+  }
+
+  .divider-stat { text-align: center; }
+  .divider-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--acid);
+    display: block;
+    line-height: 1;
+  }
+  .divider-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  .divider-sep {
+    width: 1px;
+    height: 60px;
+    background: var(--border);
+  }
+
+  /* ── CART PANEL ── */
+  .cart-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.7);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+    width: min(440px, 100vw);
+    background: var(--black);
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+    display: flex; flex-direction: column;
+  }
+  .cart-panel.open { transform: translateX(0); }
+
+  .cart-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .cart-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .cart-close {
+    background: none; border: none;
+    color: var(--off-white); cursor: pointer;
+    font-size: 1.5rem;
+    opacity: 0.5; transition: opacity 0.2s;
+    font-family: 'Space Mono', monospace;
+    line-height: 1;
+  }
+  .cart-close:hover { opacity: 1; }
+
+  .cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+  }
+
+  .cart-empty {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    height: 100%;
+    gap: 1rem;
+    color: var(--muted);
+  }
+
+  .cart-empty-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .cart-item {
+    display: flex; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    animation: slideIn 0.3s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .cart-item-img {
+    width: 70px; height: 90px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+  }
+
+  .cart-item-details { flex: 1; }
+
+  .cart-item-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .cart-item-cat {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .cart-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: var(--acid);
+    letter-spacing: 0.05em;
+  }
+
+  .cart-item-remove {
+    background: none; border: none;
+    color: var(--muted); cursor: pointer;
+    font-size: 0.8rem; font-family: 'Space Mono', monospace;
+    align-self: flex-start; padding: 0;
+    transition: color 0.2s;
+  }
+  .cart-item-remove:hover { color: var(--red); }
+
+  .cart-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .cart-total-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+  .cart-total-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .cart-total-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--acid);
+    letter-spacing: 0.05em;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    background: var(--acid);
+    color: var(--black);
+    border: none;
+    padding: 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .checkout-btn:hover { background: #fff; }
+  .checkout-btn:active { transform: scale(0.99); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--mid);
+    border-top: 1px solid var(--border);
+    padding: 4rem 3rem 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand .nav-logo {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .footer-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul li a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--off-white); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-legal {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-legal span { color: var(--acid); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--acid);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.5rem;
+    z-index: 300;
+    transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .divider-section { flex-wrap: wrap; gap: 2rem; }
+    .divider-sep { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.25rem; }
+    .hero-left { padding: 3rem 1.25rem; }
+    .footer-grid { grid-template-columns: 1fr; }
+    footer { padding: 3rem 1.25rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">M<span>agical</span></div>
+  <div class="nav-links">
+    <a href="#clothing">Clothing</a>
+    <a href="#shoes">Shoes</a>
+    <a href="#bags">Bags</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="openCart()">
+      Cart
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0; padding-top: 60px;">
+  <div class="hero-left">
+    <div class="hero-tag">SS 2026 Collection</div>
+    <h1 class="hero-h1">
+      Wear<br>
+      <span class="accent">Magic.</span>
+      Break<br>Rules.
+    </h1>
+    <p class="hero-desc">Bold streetwear for those who don't follow trends — they destroy them. New drops every week.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('clothing').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+      <button class="btn-ghost" onclick="document.getElementById('shoes').scrollIntoView({behavior:'smooth'})">New Arrivals</button>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-placeholder">
+      <div class="hero-big-text">MAGICAL</div>
+      <div class="hero-model-graphic">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:8rem; color:rgba(212,255,0,0.9); line-height:1; position:relative; z-index:2; text-shadow: 0 0 80px rgba(212,255,0,0.3);">✦</div>
+        <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-top:1rem;">New Collection Live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <span class="marquee-track">
+    MAGICAL STREETWEAR &nbsp;✦&nbsp; NEW DROP &nbsp;✦&nbsp; CLOTHING &nbsp;✦&nbsp; SHOES &nbsp;✦&nbsp; BAGS &amp; ACCESSORIES &nbsp;✦&nbsp; FREE UK SHIPPING OVER £100 &nbsp;✦&nbsp; MAGICAL STREETWEAR &nbsp;✦&nbsp; NEW DROP &nbsp;✦&nbsp; CLOTHING &nbsp;✦&nbsp; SHOES &nbsp;✦&nbsp; BAGS &amp; ACCESSORIES &nbsp;✦&nbsp; FREE UK SHIPPING OVER £100 &nbsp;✦&nbsp;
+  </span>
+</div>
+
+<!-- DIVIDER STATS -->
+<div class="divider-section" id="about">
+  <div class="divider-stat">
+    <span class="divider-num">500+</span>
+    <div class="divider-label">Products</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-stat">
+    <span class="divider-num">10K+</span>
+    <div class="divider-label">Customers</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-stat">
+    <span class="divider-num">UK</span>
+    <div class="divider-label">Based</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-stat">
+    <span class="divider-num">48H</span>
+    <div class="divider-label">Dispatch</div>
+  </div>
+</div>
+
+<!-- CLOTHING -->
+<section id="clothing">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Category 01</div>
+      <h2 class="section-title">Clothing</h2>
+    </div>
+    <span class="section-count">3 Products</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c1">HOODIE</div>
+        <span class="product-badge new">New</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Clothing</div>
+        <div class="product-name">VOID OVERSIZED HOODIE</div>
+        <div class="product-bottom">
+          <span class="product-price">£89</span>
+          <button class="add-btn" onclick="addToCart('Void Oversized Hoodie','Clothing',89,'HOODIE')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c2">TEE</div>
+        <span class="product-badge">Sale</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Clothing</div>
+        <div class="product-name">STATIC GRAPHIC TEE</div>
+        <div class="product-bottom">
+          <span class="product-price">£45</span>
+          <button class="add-btn" onclick="addToCart('Static Graphic Tee','Clothing',45,'TEE')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c3">CARGO</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Clothing</div>
+        <div class="product-name">RAZOR CARGO PANTS</div>
+        <div class="product-bottom">
+          <span class="product-price">£120</span>
+          <button class="add-btn" onclick="addToCart('Razor Cargo Pants','Clothing',120,'CARGO')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SHOES -->
+<section id="shoes" style="background: var(--mid);">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Category 02</div>
+      <h2 class="section-title">Shoes</h2>
+    </div>
+    <span class="section-count">3 Products</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card" style="background: var(--mid);">
+      <div class="product-img">
+        <div class="product-img-bg p-c4">HI-TOP</div>
+        <span class="product-badge new">New</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Shoes</div>
+        <div class="product-name">PHANTOM HIGH-TOP</div>
+        <div class="product-bottom">
+          <span class="product-price">£149</span>
+          <button class="add-btn" onclick="addToCart('Phantom High-Top','Shoes',149,'HI-TOP')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" style="background: var(--mid);">
+      <div class="product-img">
+        <div class="product-img-bg p-c5">RUNNER</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Shoes</div>
+        <div class="product-name">STREET RUNNER PRO</div>
+        <div class="product-bottom">
+          <span class="product-price">£125</span>
+          <button class="add-btn" onclick="addToCart('Street Runner Pro','Shoes',125,'RUNNER')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" style="background: var(--mid);">
+      <div class="product-img">
+        <div class="product-img-bg p-c6">SLIDES</div>
+        <span class="product-badge">Sale</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Shoes</div>
+        <div class="product-name">CHAIN SLIDES</div>
+        <div class="product-bottom">
+          <span class="product-price">£79</span>
+          <button class="add-btn" onclick="addToCart('Chain Slides','Shoes',79,'SLIDES')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BAGS -->
+<section id="bags">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Category 03</div>
+      <h2 class="section-title">Bags &amp; Accessories</h2>
+    </div>
+    <span class="section-count">3 Products</span>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c7">BAG</div>
+        <span class="product-badge new">New</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Bags</div>
+        <div class="product-name">GHOST BACKPACK</div>
+        <div class="product-bottom">
+          <span class="product-price">£135</span>
+          <button class="add-btn" onclick="addToCart('Ghost Backpack','Bags',135,'BAG')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c8">WALLET</div>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Accessories</div>
+        <div class="product-name">CHAIN WALLET</div>
+        <div class="product-bottom">
+          <span class="product-price">£55</span>
+          <button class="add-btn" onclick="addToCart('Chain Wallet','Accessories',55,'WALLET')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img">
+        <div class="product-img-bg p-c9">CROSS</div>
+        <span class="product-badge">Sale</span>
+      </div>
+      <div class="product-info">
+        <div class="product-cat">Bags</div>
+        <div class="product-name">TACTICAL CROSSBODY</div>
+        <div class="product-bottom">
+          <span class="product-price">£95</span>
+          <button class="add-btn" onclick="addToCart('Tactical Crossbody','Bags',95,'CROSS')">+ Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">M<span>agical</span></span>
+      <p class="footer-desc">Bold streetwear for the fearless. Designed in the UK. Worn worldwide. We don't follow trends — we bury them.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#clothing">Clothing</a></li>
+        <li><a href="#shoes">Shoes</a></li>
+        <li><a href="#bags">Bags & Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#">About Magical</a></li>
+        <li><a href="#">Sizing Guide</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Stockists</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Shipping & Returns</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-legal">© 2026 <span>MAGICAL</span>. All rights reserved.</span>
+    <span class="footer-legal">Made with ✦ in the UK</span>
+  </div>
+</footer>
+
+<!-- CART OVERLAY -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <span class="cart-title">Your Cart</span>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">✦</div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">Your cart is empty</div>
+      <div style="font-size:0.75rem; color:var(--muted); font-family:'Barlow Condensed',sans-serif;">Add something magical ↑</div>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">£0</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Checkout →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  let cart = [];
+
+  function addToCart(name, cat, price, emoji) {
+    cart.push({ name, cat, price, emoji, id: Date.now() });
+    updateCart();
+    showToast(name + ' added to cart!');
+  }
+
+  function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateCart();
+  }
+
+  function updateCart() {
+    const count = cart.length;
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartCount').style.display = count > 0 ? 'flex' : 'none';
+
+    const container = document.getElementById('cartItems');
+    const footer = document.getElementById('cartFooter');
+
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">✦</div><div style="font-family:\'Barlow Condensed\',sans-serif; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">Your cart is empty</div><div style="font-size:0.75rem; color:var(--muted); font-family:\'Barlow Condensed\',sans-serif;">Add something magical ↑</div></div>';
+      footer.style.display = 'none';
+    } else {
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-img p-c1" style="font-family:'Bebas Neue',sans-serif; font-size:0.7rem; letter-spacing:0.1em; text-align:center;">${item.emoji}</div>
+          <div class="cart-item-details">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-cat">${item.cat}</div>
+            <div class="cart-item-price">£${item.price}</div>
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</button>
+        </div>
+      `).join('');
+      footer.style.display = 'block';
+      const total = cart.reduce((s, i) => s + i.price, 0);
+      document.getElementById('cartTotal').textContent = '£' + total;
+    }
+  }
+
+  function openCart() {
+    document.getElementById('cartPanel').classList.add('open');
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    document.getElementById('cartPanel').classList.remove('open');
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function checkout() {
+    // TODO: Replace with real PayPal checkout URL when ready
+    const paypalUrl = 'https://www.paypal.com/checkoutnow?token=YOUR_PAYPAL_TOKEN';
+    window.open(paypalUrl, '_blank');
+    showToast('Redirecting to PayPal…');
+    closeCart();
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  // Init cart count display
+  document.getElementById('cartCount').style.display = 'none';
+</script>
+</body>
+</html>
