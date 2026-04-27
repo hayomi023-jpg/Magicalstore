@@ -1,0 +1,12 @@
+{
+  "name": "magicalstore",
+  "version": "1.0.0",
+  "description": "Static site for Magical Store",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"No tests defined\""
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}
