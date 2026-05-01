@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Static site for Magical Store",
   "scripts": {
+    "build": "echo \"Static site, no build step required\"",
     "lint": "eslint .",
     "test": "echo \"No tests defined\""
   },
